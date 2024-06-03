@@ -17,3 +17,38 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+
+.arena {
+  background-image: url("../assets/arenas/battle-arena-pokemon-v0-eyepg8yrbxna1.webp");
+}
+
+@keyframes moveRooster {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+.move-rooster {
+  animation: moveRooster 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes moveRoosterFlipped {
+  0% {
+    transform: translateY(0px) scaleX(-1);
+  }
+  100% {
+    transform: translateY(-10px) scaleX(-1);
+  }
+}
+.move-rooster {
+  animation: moveRooster 0.4s ease-in-out infinite alternate;
+}
+.flip-horizontally {
+  transform: scaleX(-1);
+}
+
+.flip-horizontally.move-rooster {
+  animation: moveRoosterFlipped 0.4s ease-in-out infinite alternate;
+}
