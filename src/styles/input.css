@@ -43,12 +43,25 @@ input[type="number"] {
   }
 }
 .move-rooster {
-  animation: moveRooster 0.4s ease-in-out infinite alternate;
+  animation: moveRooster 0.5s ease-in-out infinite alternate;
 }
 .flip-horizontally {
   transform: scaleX(-1);
 }
 
 .flip-horizontally.move-rooster {
-  animation: moveRoosterFlipped 0.4s ease-in-out infinite alternate;
+  animation: moveRoosterFlipped 0.5s ease-in-out infinite alternate;
+}
+
+.bet-button {
+  @apply bg-gray-600 hover:bg-gray-700 disabled:opacity-50 disabled:hover:scale-100 disabled:active:scale-100;
+  box-shadow: rgba(255, 255, 255, 0.4) 0 2px 0 0 inset;
+}
+
+.button-red {
+  @apply bg-red-600 hover:bg-red-700;
+}
+
+.button-blue {
+  @apply bg-blue-600 hover:bg-blue-700;
 }

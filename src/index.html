@@ -47,7 +47,7 @@
           href="#"
         >
           <img src="./assets/mascote.svg" alt="" class="size-12" />
-          <span class="hidden sm:inline-block"> Rinha de Galos </span>
+          <span class="hidden sm:inline-block">Rinha de Galos</span>
         </a>
         <div class="flex gap-2 items-center justify-center">
           <a
@@ -60,7 +60,7 @@
               <path fill-rule="evenodd" d="M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0ZM8.94 6.94a.75.75 0 1 1-1.061-1.061 3 3 0 1 1 2.871 5.026v.345a.75.75 0 0 1-1.5 0v-.5c0-.72.57-1.172 1.081-1.287A1.5 1.5 0 1 0 8.94 6.94ZM10 15a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" clip-rule="evenodd" />
             </svg>
 
-            <span class="hidden sm:inline-block"> Como jogar? </span>
+            <span class="hidden sm:inline-block">Como jogar?</span>
           </a>
           <!-- Saldo do usuário -->
           <div
@@ -87,9 +87,18 @@
           <div class="arena p-10 bg-cover bg-no-repeat w-[640px] h-[480px]">
             <div class="flex gap-1 items-center">
               <!-- rooster 1 -->
-              <div
-                class="w-80 h-60 bg-blue-800/30 rounded-l-2xl flex flex-col gap-2 p-2 items-center hover:bg-blue-800 hover:scale-105 transition-all ease-in-out hover:shadow-2xl shadow-none shadow-blue-600"
+              <label
+                class="cursor-pointer w-80 h-60 bg-blue-800/30 rounded-l-2xl flex flex-col gap-2 p-2 items-center hover:bg-blue-800 hover:scale-105 transition-all ease-in-out hover:shadow-2xl shadow-none shadow-blue-600 has-[:checked]:bg-blue-800 has-[:checked]:scale-95"
+                data-rooster="blue"
               >
+                <input
+                  type="checkbox"
+                  name="rooster"
+                  id=""
+                  class="hidden"
+                  value="blue"
+                />
+
                 <img
                   src="./assets/rooster-img/galo-de-kalsa.png"
                   class="w-40 h-40 object-contain move-rooster"
@@ -98,22 +107,31 @@
                 <div
                   class="rounded-full bg-slate-700 border border-slate-800 px-8 py-1"
                 >
-                  <span class="text-white"> Galo de calça </span>
+                  <span class="text-white">Galo de calça</span>
                 </div>
-              </div>
+              </label>
 
               <!-- or -->
               <div class="w-1 h-1 relative">
                 <span
-                  class="top-0 -left-[18px] absolute text-white text-xl bg-slate-900 flex items-center justify-center w-10 h-10 rounded-full"
-                  >Ou</span
+                  class="pointer-events-none top-0 -left-[18px] absolute text-white text-xl bg-slate-900 flex items-center justify-center w-10 h-10 rounded-full"
                 >
+                  Ou
+                </span>
               </div>
 
               <!-- rooster 2 -->
-              <div
-                class="w-80 h-60 bg-red-800/30 rounded-r-2xl flex flex-col gap-2 p-2 items-center hover:bg-red-800 hover:scale-105 transition-all ease-in-out hover:shadow-2xl shadow-none shadow-red-600"
+              <label
+                class="cursor-pointer w-80 h-60 bg-red-800/30 rounded-r-2xl flex flex-col gap-2 p-2 items-center hover:bg-red-800 hover:scale-105 transition-all ease-in-out hover:shadow-2xl shadow-none shadow-red-600 has-[:checked]:bg-red-800 has-[:checked]:scale-95"
+                data-rooster="red"
               >
+                <input
+                  type="checkbox"
+                  name="rooster"
+                  id=""
+                  class="hidden"
+                  value="red"
+                />
                 <img
                   src="./assets/rooster-img/galo-de-tenis.png"
                   class="w-40 h-40 object-contain flip-horizontally move-rooster"
@@ -122,15 +140,108 @@
                 <div
                   class="rounded-full bg-slate-700 border border-slate-800 px-8 py-1"
                 >
-                  <span class="text-white"> Galo de tênis </span>
+                  <span class="text-white">Galo de tênis</span>
                 </div>
-              </div>
+              </label>
             </div>
           </div>
-          <!-- <div>botão</div> -->
+          <!-- botão e aposta -->
+          <div
+            class="p-3 flex flex-col gap-4 justify-center items-center w-full text-white bg-gray-800 border border-gray-700 rounded-xl"
+          >
+            <div class="text-gray-400 text-sm">
+              <p data-bet-hint>Escolha um dos galos antes de fazer a aposta</p>
+            </div>
+
+            <!-- bet button and counter -->
+            <div class="flex gap-8 flex-col-reverse sm:flex-row items-center">
+              <div
+                class="grid grid-cols-2 gap-1 w-full sm:w-40 group-disabled:opacity-50"
+              >
+                <label
+                  class="flex items-center justify-center w-full col-span-2 bg-gray-950 rounded-full border border-gray-700"
+                >
+                  <input
+                    type="number"
+                    value="1.00"
+                    step=".01"
+                    min="0.01"
+                    name=""
+                    data-bet-value
+                    class="pl-6 w-full flex text-center text-lg bg-transparent border-none outline-none appearance-none"
+                  />
+                  <div class="flex gap-1 px-2">
+                    <button
+                      type="button"
+                      data-button-update-bet="1"
+                      id="plus-one-btn"
+                      class="flex items-center justify-center bg-gray-500 text-gray-800 rounded-full hover:brightness-125 hover:scale-105"
+                    >
+                      <!-- ícone de mais -->
+                      <!-- prettier-ignore -->
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4">
+                        <path d="M8.75 3.75a.75.75 0 0 0-1.5 0v3.5h-3.5a.75.75 0 0 0 0 1.5h3.5v3.5a.75.75 0 0 0 1.5 0v-3.5h3.5a.75.75 0 0 0 0-1.5h-3.5v-3.5Z" />
+                      </svg>
+                    </button>
+                    <button
+                      type="button"
+                      data-button-update-bet="-1"
+                      class="flex items-center justify-center bg-gray-500 text-gray-800 rounded-full hover:brightness-125 hover:scale-105"
+                    >
+                      <!-- ícone de menos -->
+                      <!-- prettier-ignore -->
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4">
+                        <path d="M3.75 7.25a.75.75 0 0 0 0 1.5h8.5a.75.75 0 0 0 0-1.5h-8.5Z" />
+                      </svg>
+                    </button>
+                  </div>
+                </label>
+                <button
+                  type="button"
+                  data-button-update-bet="5"
+                  class="flex place-content-center text-xs rounded-full bg-gray-700 border border-gray-600 p-0.5"
+                >
+                  5
+                </button>
+                <button
+                  type="button"
+                  data-button-update-bet="10"
+                  data-bet-value-input="1"
+                  class="flex place-content-center text-xs rounded-full bg-gray-700 border border-gray-600 p-0.5"
+                >
+                  10
+                </button>
+                <button
+                  type="button"
+                  data-button-update-bet="20"
+                  class="flex place-content-center text-xs rounded-full bg-gray-700 border border-gray-600 p-0.5"
+                >
+                  20
+                </button>
+                <button
+                  type="button"
+                  data-button-update-bet="100"
+                  class="flex place-content-center text-xs rounded-full bg-gray-700 border border-gray-600 p-0.5"
+                >
+                  100
+                </button>
+              </div>
+              <!-- BET BUTTON -->
+              <button
+                class="h-24 w-60 rounded-md bet-button button-blue flex flex-col items-center justify-center hover:scale-[1.025] active:scale-[0.975] active:shadow-none border border-transparent"
+                data-bet-button
+              >
+                <span class="text-4xl">Apostar</span>
+                <span
+                  class="text-gray-300 font-bold"
+                  data-bet-button-description
+                ></span>
+              </button>
+            </div>
+          </div>
         </div>
       </main>
     </div>
-    <!-- <script type="module" src="./scripts/main-script.js"></script> -->
+    <script type="module" src="./scripts/main-script.js"></script>
   </body>
 </html>
