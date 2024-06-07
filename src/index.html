@@ -84,7 +84,10 @@
           <h3 class="text-3xl font-bold text-white">Quem ganha essa briga?</h3>
           <!-- roosters -->
 
-          <div class="arena p-10 bg-cover bg-no-repeat w-[640px] h-[480px]">
+          <!-- arena -->
+          <div
+            class="relative arena p-10 bg-cover bg-no-repeat w-[640px] h-[480px]"
+          >
             <div class="flex gap-1 items-center">
               <!-- rooster 1 -->
               <label
@@ -100,14 +103,14 @@
                 />
 
                 <img
-                  src="./assets/rooster-img/galo-de-kalsa.png"
+                  src="./assets/rooster-img/blue.png"
                   class="w-40 h-40 object-contain move-rooster"
                   alt=""
                 />
                 <div
                   class="rounded-full bg-slate-700 border border-slate-800 px-8 py-1"
                 >
-                  <span class="text-white">Galo de calça</span>
+                  <span class="text-white">Galo Azulão</span>
                 </div>
               </label>
 
@@ -133,16 +136,40 @@
                   value="red"
                 />
                 <img
-                  src="./assets/rooster-img/galo-de-tenis.png"
+                  src="./assets/rooster-img/red.png"
                   class="w-40 h-40 object-contain flip-horizontally move-rooster"
                   alt=""
                 />
                 <div
                   class="rounded-full bg-slate-700 border border-slate-800 px-8 py-1"
                 >
-                  <span class="text-white">Galo de tênis</span>
+                  <span class="text-white">Galo Carmim</span>
                 </div>
               </label>
+            </div>
+
+            <!-- animation container -->
+            <div class="absolute w-full h-full bg-red-500 top-0 left-0">
+              <img
+                src="./assets/rooster-img/blue.png"
+                class="absolute w-40 h-40 object-contain rooster-red-fight left-1 bottom-2"
+                alt=""
+              />
+              <img
+                src="./assets/rooster-img/red.png"
+                class="absolute w-40 h-40 object-contain flip-horizontally right-1 bottom-2 rooster-blue-fight"
+                alt=""
+              />
+              <img
+                src="./assets/fight.gif"
+                alt=""
+                class="absolute w-80 min-h-80 object-contain left-1/4 -bottom-16 cloud-fight"
+              />
+              <!-- <img
+                src="./assets/rooster-img/red-win.png"
+                alt=""
+                class="absolute h-40 object-contain left-[20%] bottom-2"
+              /> -->
             </div>
           </div>
           <!-- botão e aposta -->

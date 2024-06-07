@@ -65,3 +65,53 @@ input[type="number"] {
 .button-blue {
   @apply bg-blue-600 hover:bg-blue-700;
 }
+
+@keyframes blueRoosterFight {
+  0% {
+    right: 4px;
+  }
+  99% {
+    right: 33.333333%;
+  }
+  100% {
+    right: 33.333333%;
+    visibility: hidden;
+    display: none;
+  }
+}
+@keyframes redRoosterFight {
+  0% {
+    left: 4px;
+  }
+  99% {
+    left: 33.333333%;
+  }
+  100% {
+    left: 33.333333%;
+    visibility: hidden;
+    display: none;
+  }
+}
+.rooster-blue-fight {
+  animation: blueRoosterFight 0.8s 2s ease-in forwards;
+}
+
+.rooster-red-fight {
+  animation: redRoosterFight 0.8s 2s ease-in forwards;
+}
+
+@keyframes cloudFightAppear {
+  0% {
+    visibility: hidden;
+    display: none;
+  }
+  100% {
+    visibility: visible;
+    display: block;
+  }
+}
+
+.cloud-fight {
+  visibility: hidden;
+  animation: cloudFightAppear 0.1s 2.8s linear forwards;
+}
