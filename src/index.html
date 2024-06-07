@@ -149,27 +149,42 @@
             </div>
 
             <!-- animation container -->
-            <div class="absolute w-full h-full bg-red-500 top-0 left-0">
+            <div
+              class="absolute w-full h-full top-0 left-0 hidden"
+              data-rooster-fight-container
+            >
               <img
                 src="./assets/rooster-img/blue.png"
-                class="absolute w-40 h-40 object-contain rooster-red-fight left-1 bottom-2"
+                data-rooster-fight-rooster="blue"
+                class="absolute w-40 h-40 object-contain left-1 bottom-2 hidden"
                 alt=""
               />
+              <!-- classe: rooster-red-fight -->
               <img
                 src="./assets/rooster-img/red.png"
-                class="absolute w-40 h-40 object-contain flip-horizontally right-1 bottom-2 rooster-blue-fight"
+                data-rooster-fight-rooster="red"
+                class="absolute w-40 h-40 object-contain flip-horizontally right-1 bottom-2 hidden"
                 alt=""
+              />
+              <!-- classe: rooster-blue-fight -->
+              <img
+                src="./assets/cloud-fight.gif"
+                data-rooster-fight-cloud
+                alt=""
+                class="absolute w-80 min-h-80 object-contain left-1/4 -bottom-16 hidden"
               />
               <img
-                src="./assets/fight.gif"
-                alt=""
-                class="absolute w-80 min-h-80 object-contain left-1/4 -bottom-16 cloud-fight"
-              />
-              <!-- <img
                 src="./assets/rooster-img/red-win.png"
-                alt=""
-                class="absolute h-40 object-contain left-[20%] bottom-2"
-              /> -->
+                alt="O Galo Vermelho ganhou a luta"
+                data-rooster-winner="red"
+                class="absolute h-40 object-contain left-[20%] bottom-2 hidden"
+              />
+              <img
+                src="./assets/rooster-img/blue-win.png"
+                data-rooster-winner="blue"
+                alt="O Galo Azul ganhou a luta"
+                class="absolute h-40 object-contain left-[20%] bottom-2 hidden"
+              />
             </div>
           </div>
           <!-- botão e aposta -->

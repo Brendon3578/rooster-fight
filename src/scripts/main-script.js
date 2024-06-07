@@ -1,3 +1,11 @@
+import { RoosterAnimation } from "./classes/RoosterAnimation.js";
+
+const roosterAnimation = new RoosterAnimation();
+
+roosterAnimation.roosterFight("blue");
+
+// ------------------------------------[ SCRIPT DO CHECKBOX DAS GALINHAS ]------------------------------------
+
 const $roostersContainerEls = document.querySelectorAll("[data-rooster]");
 const $betButtonEl = document.querySelector("[data-bet-button]");
 const $betButtonDescriptionEl = document.querySelector(

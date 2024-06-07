@@ -66,7 +66,7 @@ input[type="number"] {
   @apply bg-blue-600 hover:bg-blue-700;
 }
 
-@keyframes blueRoosterFight {
+@keyframes redRoosterFight {
   0% {
     right: 4px;
   }
@@ -79,7 +79,7 @@ input[type="number"] {
     display: none;
   }
 }
-@keyframes redRoosterFight {
+@keyframes blueRoosterFight {
   0% {
     left: 4px;
   }
@@ -92,12 +92,12 @@ input[type="number"] {
     display: none;
   }
 }
-.rooster-blue-fight {
-  animation: blueRoosterFight 0.8s 2s ease-in forwards;
+.rooster-red-fight {
+  animation: redRoosterFight 0.8s 5s ease-in forwards;
 }
 
-.rooster-red-fight {
-  animation: redRoosterFight 0.8s 2s ease-in forwards;
+.rooster-blue-fight {
+  animation: blueRoosterFight 0.8s 5s ease-in forwards;
 }
 
 @keyframes cloudFightAppear {
@@ -113,5 +113,5 @@ input[type="number"] {
 
 .cloud-fight {
   visibility: hidden;
-  animation: cloudFightAppear 0.1s 2.8s linear forwards;
+  animation: cloudFightAppear 0.1s 5.8s linear forwards;
 }
