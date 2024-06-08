@@ -1,8 +1,17 @@
 import { RoosterAnimation } from "./classes/RoosterAnimation.js";
+import { getRandomInt, log } from "./utils.js";
 
 const roosterAnimation = new RoosterAnimation();
 
-roosterAnimation.roosterFight("blue");
+const randomNumber = getRandomInt(10);
+console.log(randomNumber);
+if (randomNumber >= 5) {
+  log("start", "O galo azul irá ganhar essa luta");
+  roosterAnimation.roosterFight("blue");
+} else {
+  log("start", "O galo vermelho irá ganhar essa luta");
+  roosterAnimation.roosterFight("red");
+}
 
 // ------------------------------------[ SCRIPT DO CHECKBOX DAS GALINHAS ]------------------------------------
 

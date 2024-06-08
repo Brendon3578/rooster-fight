@@ -103,21 +103,21 @@
                 />
 
                 <img
-                  src="./assets/rooster-img/blue.png"
+                  src="./assets/rooster-img/red.png"
                   class="w-40 h-40 object-contain move-rooster"
                   alt=""
                 />
                 <div
                   class="rounded-full bg-slate-700 border border-slate-800 px-8 py-1"
                 >
-                  <span class="text-white">Galo Azulão</span>
+                  <span class="text-white">Ataliba</span>
                 </div>
               </label>
 
               <!-- or -->
               <div class="w-1 h-1 relative">
                 <span
-                  class="pointer-events-none top-0 -left-[18px] absolute text-white text-xl bg-slate-900 flex items-center justify-center w-10 h-10 rounded-full"
+                  class="pointer-events-none top-0 -left-[18px] absolute text-white text-xl font-semibold italic bg-slate-900 flex items-center justify-center w-10 h-10 rounded-full"
                 >
                   Ou
                 </span>
@@ -136,32 +136,32 @@
                   value="red"
                 />
                 <img
-                  src="./assets/rooster-img/red.png"
+                  src="./assets/rooster-img/blue.png"
                   class="w-40 h-40 object-contain flip-horizontally move-rooster"
                   alt=""
                 />
                 <div
                   class="rounded-full bg-slate-700 border border-slate-800 px-8 py-1"
                 >
-                  <span class="text-white">Galo Carmim</span>
+                  <span class="text-white">Frango da Sadia</span>
                 </div>
               </label>
             </div>
 
             <!-- animation container -->
             <div
-              class="absolute w-full h-full top-0 left-0 hidden"
+              class="absolute w-full h-[1px] bottom-0 left-0 hidden"
               data-rooster-fight-container
             >
               <img
-                src="./assets/rooster-img/blue.png"
+                src="./assets/rooster-img/red.png"
                 data-rooster-fight-rooster="blue"
                 class="absolute w-40 h-40 object-contain left-1 bottom-2 hidden"
                 alt=""
               />
               <!-- classe: rooster-red-fight -->
               <img
-                src="./assets/rooster-img/red.png"
+                src="./assets/rooster-img/blue.png"
                 data-rooster-fight-rooster="red"
                 class="absolute w-40 h-40 object-contain flip-horizontally right-1 bottom-2 hidden"
                 alt=""
@@ -174,13 +174,13 @@
                 class="absolute w-80 min-h-80 object-contain left-1/4 -bottom-16 hidden"
               />
               <img
-                src="./assets/rooster-img/red-win.png"
+                src="./assets/rooster-img/blue-win.png"
                 alt="O Galo Vermelho ganhou a luta"
                 data-rooster-winner="red"
                 class="absolute h-40 object-contain left-[20%] bottom-2 hidden"
               />
               <img
-                src="./assets/rooster-img/blue-win.png"
+                src="./assets/rooster-img/red-win.png"
                 data-rooster-winner="blue"
                 alt="O Galo Azul ganhou a luta"
                 class="absolute h-40 object-contain left-[20%] bottom-2 hidden"
@@ -270,8 +270,9 @@
               </div>
               <!-- BET BUTTON -->
               <button
-                class="h-24 w-60 rounded-md bet-button button-blue flex flex-col items-center justify-center hover:scale-[1.025] active:scale-[0.975] active:shadow-none border border-transparent"
+                class="h-24 w-60 rounded-md bet-button flex flex-col items-center justify-center hover:scale-[1.025] active:scale-[0.975] active:shadow-none border border-transparent"
                 data-bet-button
+                disabled
               >
                 <span class="text-4xl">Apostar</span>
                 <span
