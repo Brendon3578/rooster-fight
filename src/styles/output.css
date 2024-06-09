@@ -592,6 +592,10 @@ video {
   pointer-events: none;
 }
 
+.static {
+  position: static;
+}
+
 .absolute {
   position: absolute;
 }
@@ -606,6 +610,10 @@ video {
 
 .-left-\[18px\] {
   left: -18px;
+}
+
+.bottom-0 {
+  bottom: 0px;
 }
 
 .bottom-2 {
@@ -634,10 +642,6 @@ video {
 
 .top-0 {
   top: 0px;
-}
-
-.bottom-0 {
-  bottom: 0px;
 }
 
 .col-span-2 {
@@ -699,20 +703,12 @@ video {
   height: 15rem;
 }
 
-.h-\[480px\] {
-  height: 480px;
-}
-
-.h-full {
-  height: 100%;
-}
-
-.h-1\/2 {
-  height: 50%;
-}
-
 .h-\[1px\] {
   height: 1px;
+}
+
+.h-\[480px\] {
+  height: 480px;
 }
 
 .min-h-80 {

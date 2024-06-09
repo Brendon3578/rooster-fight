@@ -86,8 +86,8 @@ class RoosterAnimation {
 
   toggleRoosterFightAnimation(roosterEl, color, shouldAdd = true) {
     const roosterAnimationClassName = `rooster-${color}-fight`;
-    roosterEl.classList.toggle(roosterAnimationClassName, shouldAdd);
     roosterEl.classList.toggle("hidden", !shouldAdd);
+    roosterEl.classList.toggle(roosterAnimationClassName, shouldAdd);
   }
 
   cleanAllAnimation() {
