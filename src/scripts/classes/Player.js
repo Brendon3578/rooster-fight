@@ -2,7 +2,7 @@ import { elementExists, log } from "../utils.js";
 import { Bet } from "./Bet.js";
 
 /**
- * Classe que representa o jogador dentro do jogo aviator.
+ * Classe que representa o jogador dentro do jogo.
  *
  * Essa classe foi feita para centralizar os métodos de aposta do jogador.
  * E poder controlar o dinheiro que é utilizado dentro do jogo.
