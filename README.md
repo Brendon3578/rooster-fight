@@ -17,10 +17,9 @@ O objetivo é simples: escolha o galo que você acha que vai ganhar e veja o res
 ## Como Jogar
 
 1. Acesse o jogo através deste [link](https://brendon3578.github.io/rooster-fight/src/index.html)
-2.
-3. Escolha seu galo favorito clicando no galo vermelho ou no galo azul.
-4. Assista à batalha entre os galos.
-5. Descubra se o seu galo venceu a briga! Cada briga tem uma chance de 50% de vitória para cada galo.
+2. Escolha seu galo favorito clicando no galo vermelho ou no galo azul.
+3. Assista à batalha entre os galos.
+4. Descubra se o seu galo venceu a briga! Cada briga tem uma chance de 50% de vitória para cada galo.
 
 ## Tecnologias Utilizadas
 
