@@ -1,3 +1,6 @@
+import { getRandomInt, sleep } from "../utils.js";
+import { RoosterAnimation } from "./RoosterAnimation.js";
+
 const buttonsTextsEnum = {
   newGame: "Novo Jogo",
   bet: "Apostar",
@@ -30,14 +33,21 @@ class Game {
    * @private
    */
   #player;
+  /**
+   * Instância da classe que controla a animação.
+   * @type {RoosterAnimation}
+   * @private
+   */
+  #roosterAnimation;
 
   /**
    * Cria uma nova instância de Game.
    * @param {Player} player - Instância do jogador.
    */
-  constructor(player) {
+  constructor(player, roosterAnimation) {
     //injeção de dependência
     this.#player = player;
+    this.#roosterAnimation = roosterAnimation;
   }
 
   /**
@@ -50,7 +60,19 @@ class Game {
     this.#player.updateMoneyOnInterface();
   }
 
-  betGame() {}
+  // TODO: fazer o usuário ter apenas 25% chance de ganho
+  async betRoosterFight(userBettedRooster) {
+    let roosterWinner = "";
+    const randomInt = getRandomInt(2);
+    if (randomInt === 0) {
+      roosterWinner = "blue";
+    } else {
+      roosterWinner = "red";
+    }
+
+    await this.#roosterAnimation.roosterFight(roosterWinner);
+    return roosterWinner;
+  }
 }
 
 export { Game, buttonsTextsEnum, gameHintEnum };

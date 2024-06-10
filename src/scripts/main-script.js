@@ -1,11 +1,5 @@
 import { RoosterAnimation } from "./classes/RoosterAnimation.js";
-import {
-  elementExists,
-  getRandomInt,
-  isBoolean,
-  log,
-  showAlert,
-} from "./utils.js";
+import { elementExists, isBoolean, showAlert, sleep } from "./utils.js";
 import { buttonsTextsEnum, Game, gameHintEnum } from "./classes/Game.js";
 import { Player } from "./classes/Player.js";
 
@@ -13,41 +7,48 @@ const $roostersCheckboxEls = document.querySelectorAll(
   "input[type='checkbox']"
 );
 const $betButtonEl = document.querySelector("[data-bet-button]");
-const $betButtonTileEl = $betButtonEl.querySelector("[data-bet-button-title]");
+const $betButtonTitleEl = $betButtonEl.querySelector("[data-bet-button-title]");
 const $betButtonDescriptionEl = $betButtonEl.querySelector(
   "[data-bet-button-description]"
 );
 const $betFieldsetEl = document.querySelector("[data-bet-fieldset]");
 const $betGameHintEl = document.querySelector("[data-bet-hint]");
-const roosterAnimation = new RoosterAnimation();
-let bettedRooster = "";
-const $playerMoneyTextEl = document.getElementById("player-money");
-const player = new Player($playerMoneyTextEl);
-const game = new Game(player);
-const $betInputEl = document.querySelector("[data-bet-value]");
 
+const $playerMoneyTextEl = document.getElementById("player-money");
+const $betInputEl = document.querySelector("[data-bet-value]");
 const $updateBetButtons = document.querySelectorAll(
   "button[data-button-update-bet]"
 );
+const $chooseRoosterContainerEl = document.querySelector(
+  "[data-rooster-choose-container]"
+);
+const $mainTitle = document.querySelector("[data-title]");
 
+const roosterAnimation = new RoosterAnimation();
+const player = new Player($playerMoneyTextEl);
+const game = new Game(player, roosterAnimation);
+let bettedRooster = "";
 // ------------------------------------[ SCRIPT PRINCIPAL DO JOGO ]------------------------------------
 
 game.build();
 
-const randomNumber = getRandomInt(10);
-console.log(randomNumber);
-if (randomNumber >= 5) {
-  log("start", "O galo azul irá ganhar essa luta");
-  roosterAnimation.roosterFight("blue");
-} else {
-  log("start", "O galo vermelho irá ganhar essa luta");
-  roosterAnimation.roosterFight("red");
-}
-
 // ------------------------[ SCRIPT DOS BOTÕES ]------------------------
-$betButtonEl.addEventListener("click", () => {
+$betButtonEl.addEventListener("click", async () => {
+  // se é novo jogo
+  if ($betButtonTitleEl.textContent == buttonsTextsEnum.newGame) {
+    unCheckAllRoosterCheckbox();
+    setBetButtonText(buttonsTextsEnum.bet);
+    hideChooseRoosterContainer(false);
+    bettedRooster = "";
+    roosterAnimation.cleanAllAnimation();
+    changeBetButtonColor("", false);
+    setMainTitle("Quem ganha essa briga?");
+    return;
+  }
+
   if (!bettedRooster) throw new Error("No one rooster was betted yet!");
   const bet = getBetValueFromInput();
+  setMainTitle("A briga está começando");
 
   // verificar se o usuário tem dinheiro suficiente
   if (player.hasEnoughMoney(bet) == false) {
@@ -62,17 +63,52 @@ $betButtonEl.addEventListener("click", () => {
     );
     return;
   }
+  hideChooseRoosterContainer(true);
 
   player.setBetValue(bet);
   player.loseMoney(bet);
   setBetHintText(gameHintEnum.waitForFightEnds);
 
-  showAlert(
-    "O galo apostado foi o " + bettedRooster + " valor da aposta :" + bet
-  );
-  setBetButtonText(buttonsTextsEnum.betted, "aguarde a briga");
+  setBetButtonText(buttonsTextsEnum.betted, "Aguarde a briga");
   setBetButtonDisabled($betButtonEl, true);
   setFieldsetDisabled($betFieldsetEl, true);
+
+  const roosterWinner = await game.betRoosterFight(bettedRooster);
+  await sleep(2500);
+  const roosterWinnerName = roosterWinner === "blue" ? "Azul" : "Vermelho";
+
+  const didUserWinBet = bettedRooster === roosterWinner;
+  console.log(
+    `bettedRooster: ${bettedRooster} | roosterWinner: ${roosterWinner}`
+  );
+  setMainTitle(
+    didUserWinBet ? "Você ganhou a aposta!" : "Você perdeu a aposta"
+  );
+
+  if (didUserWinBet) {
+    // o usuário ganhou a aposta
+    player.winBet();
+
+    let winMoney = player.getBetValue() * 2;
+    player.winMoney(winMoney);
+
+    showAlert(`Você ganhou ${winMoney.toFixed(2)}!`);
+  } else {
+    // o usuário perdeu a aposta
+    player.loseBetsDone();
+    let lostBet = player.getLostBets();
+    player.loseMoney(lostBet.value);
+    showAlert(
+      `Você perdeu ${lostBet.value.toFixed(
+        2
+      )}! O galo que ganhou foi o ${roosterWinnerName}`
+    );
+  }
+
+  setBetButtonText(buttonsTextsEnum.newGame, "");
+  setBetHintText(gameHintEnum.waitForUserStartNewBet);
+  setBetButtonDisabled($betButtonEl, false);
+  setFieldsetDisabled($betFieldsetEl, false);
 });
 
 // ------------------------------------[ SCRIPT DO CHECKBOX DAS GALINHAS ]------------------------------------
@@ -181,7 +217,7 @@ function changeBetButtonColor(color, isChecked) {
 }
 
 function setBetButtonText(text, description) {
-  $betButtonTileEl.textContent = text;
+  $betButtonTitleEl.textContent = text;
   $betButtonDescriptionEl.textContent = description;
 }
 
@@ -197,4 +233,21 @@ function getBetValueFromInput() {
 function setBetHintText(hint) {
   if (!hint) throw new Error("Game hint don't exists or is undefined");
   $betGameHintEl.textContent = hint;
+}
+
+// ---------------[ FUNÇÃO PRA ESCONDER OS CHECKBOX DE ESCOLHER OS GALOS ]---------------
+function hideChooseRoosterContainer(shouldHide) {
+  $chooseRoosterContainerEl.classList.toggle("hidden", shouldHide);
+  $chooseRoosterContainerEl.classList.toggle("flex", !shouldHide);
+}
+
+// ---------------[ FUNÇÃO PRA DESMARCAR TODOS OS CHECKBOX DE GALOS ]---------------
+
+function unCheckAllRoosterCheckbox() {
+  $roostersCheckboxEls.forEach((el) => (el.checked = false));
+}
+// ---------------[ FUNÇÃO QUE MUDA O TÍTULO EM CIMA DO JOGO ]---------------
+
+function setMainTitle(title) {
+  $mainTitle.textContent = title;
 }
