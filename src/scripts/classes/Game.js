@@ -1,11 +1,12 @@
 const buttonsTextsEnum = {
   newGame: "Novo Jogo",
   bet: "Apostar",
+  betted: "Apostado",
 };
 
 const gameHintEnum = {
-  waitForUserBet: "Escolha um dos galos antes de fazer a aposta",
-  waitForFightEnds: "Espere a partida acabar",
+  waitForUserChooseRooster: "Escolha um dos galos antes de fazer a aposta",
+  waitForFightEnds: "Espere a briga acabar",
   waitForUserConfirmBet:
     "Aperte abaixo para confirmar a aposta e começar a briga de galo",
   waitForUserStartNewBet:
@@ -52,4 +53,4 @@ class Game {
   betGame() {}
 }
 
-export { Game };
+export { Game, buttonsTextsEnum, gameHintEnum };
