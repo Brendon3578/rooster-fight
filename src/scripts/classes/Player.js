@@ -1,5 +1,5 @@
 import { elementExists, log } from "../utils.js";
-import { Bet } from "./bet.js";
+import { Bet } from "./Bet.js";
 
 /**
  * Classe que representa o jogador dentro do jogo aviator.
