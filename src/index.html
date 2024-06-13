@@ -38,18 +38,18 @@
     <title>Rinha de Galo - Fatekinho</title>
   </head>
   <body class="bg-background">
-    <div id="app" class="x w-full min-h-screen">
+    <div id="app" class="w-full min-h-screen">
       <!-- HEADER -->
       <header
         class="p-1 px-4 bg-slate-800 flex justify-between border border-b border-slate-700"
       >
         <!-- LOGO -->
         <a
-          class="text-primary text-4xl flex items-center hover:animate-pulse"
+          class="text-primary text-4xl flex items-center gap-2 hover:animate-pulse"
           href="#"
         >
-          <img src="./assets/mascote.svg" alt="" class="size-12" />
-          <span class="hidden sm:inline-block">Rinha de Galo</span>
+          <img src="./assets/mascote.svg" alt="" class="size-12 min-w-12" />
+          <span class="hidden md:inline-block">Rinha de Galo</span>
         </a>
         <div class="flex gap-2 items-center justify-center">
           <a
@@ -69,7 +69,11 @@
             class="flex gap-2 items-center justify-center py-0.5 px-3 bg-slate-900 border-slate-700 border rounded-full text-white"
           >
             <span>
-              <img src="./assets/coin.svg" alt="fatecoins" class="size-6" />
+              <img
+                src="./assets/coin.svg"
+                alt="fatecoins"
+                class="size-6 min-w-6"
+              />
             </span>
             <span id="player-money">0.00</span>
           </div>

@@ -849,6 +849,27 @@ video {
   min-width: 10rem;
 }
 
+.min-w-8 {
+  min-width: 2rem;
+}
+
+.min-w-12 {
+  min-width: 3rem;
+}
+
+.min-w-6 {
+  min-width: 1.5rem;
+}
+
+.min-w-full {
+  min-width: 100%;
+}
+
+.min-w-max {
+  min-width: -moz-max-content;
+  min-width: max-content;
+}
+
 .max-w-2xl {
   max-width: 42rem;
 }
@@ -1610,6 +1631,12 @@ input[type="number"] {
 
   .sm\:p-2 {
     padding: 0.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:inline-block {
+    display: inline-block;
   }
 }
 
