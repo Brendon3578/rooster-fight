@@ -63,11 +63,14 @@ class Game {
   // TODO: fazer o usuário ter apenas 25% chance de ganho
   async betRoosterFight(userBettedRooster) {
     let roosterWinner = "";
-    const randomInt = getRandomInt(2);
+    const randomInt = getRandomInt(4); // Gera um número entre 0 e 3 (inclusive)
+
     if (randomInt === 0) {
-      roosterWinner = "blue";
+      // 25% de chance de vitória
+      roosterWinner = userBettedRooster;
     } else {
-      roosterWinner = "red";
+      // 75% de chance de derrota
+      roosterWinner = userBettedRooster == "blue" ? "red" : "blue";
     }
 
     await this.#roosterAnimation.roosterFight(roosterWinner);
