@@ -18,7 +18,11 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
-.arena {
+.versus-background {
+  background-image: url("../assets/arenas/background_versus.png");
+}
+
+.arena-background {
   background-image: url("../assets/arenas/background_rinha_1.png");
 }
 
@@ -93,11 +97,11 @@ input[type="number"] {
   }
 }
 .rooster-red-fight {
-  animation: redRoosterFight 0.8s 5s ease-in forwards;
+  animation: blueRoosterFight 0.8s 5s ease-in forwards;
 }
 
 .rooster-blue-fight {
-  animation: blueRoosterFight 0.8s 5s ease-in forwards;
+  animation: redRoosterFight 0.8s 5s ease-in forwards;
 }
 
 @keyframes cloudFightAppear {

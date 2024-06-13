@@ -3,7 +3,16 @@ import { elementExists, isBoolean, showAlert, sleep } from "./utils.js";
 import { buttonsTextsEnum, Game, gameHintEnum } from "./classes/Game.js";
 import { Player } from "./classes/Player.js";
 
+/**
+ * Alias para document.querySelector que retorna o primeiro elemento correspondente ao seletor.
+ * @type {function(string): HTMLElement}
+ */
 const $ = document.querySelector.bind(document);
+
+/**
+ * Alias para document.querySelectorAll que retorna todos os elementos correspondentes ao seletor.
+ * @type {function(string): NodeListOf<HTMLElement>}
+ */
 const $$ = document.querySelectorAll.bind(document);
 
 const $roostersCheckboxEls = $$("input[type='checkbox']");
@@ -19,6 +28,7 @@ const $betInputEl = $("[data-bet-value]");
 const $updateBetButtons = $$("button[data-button-update-bet]");
 const $chooseRoosterContainerEl = $("[data-rooster-choose-container]");
 const $mainTitle = $("[data-title]");
+const $arenaEl = $("[data-arena]");
 
 const roosterAnimation = new RoosterAnimation();
 const player = new Player($playerMoneyTextEl);
@@ -60,6 +70,8 @@ async function placeBet() {
     );
     return;
   }
+
+  setArenaBackground(true);
 
   hideChooseRoosterContainer(true);
   player.setBetValue(bet);
@@ -106,6 +118,7 @@ function handleUserLoss(roosterWinnerName) {
 }
 
 function startNewGame() {
+  setArenaBackground(false);
   unCheckAllRoosterCheckbox();
   setBetButtonState(buttonsTextsEnum.bet, "", false, false);
   hideChooseRoosterContainer(false);
@@ -183,10 +196,15 @@ function changeBetButtonColor(color, isChecked) {
 
   $betButtonEl.classList.toggle("button-blue", isChecked && isBlue);
   $betButtonEl.classList.toggle("button-red", isChecked && isRed);
+  const description = isChecked
+    ? isRed && !isBlue
+      ? "no Vermelho"
+      : "no Azul"
+    : "";
 
   setBetButtonText(
     isChecked ? buttonsTextsEnum.bet : buttonsTextsEnum.bet,
-    isRed && !isBlue ? "no Vermelho" : "no Azul"
+    description
   );
   setBetHintText(
     isChecked
@@ -232,4 +250,9 @@ function unCheckAllRoosterCheckbox() {
 
 function setMainTitle(title) {
   $mainTitle.textContent = title;
+}
+// ---------------[ FUNÇÃO QUE MUDA O FUNDO DO JOGO ]---------------
+function setArenaBackground(isVersusScreen) {
+  $arenaEl.classList.toggle("arena-background", isVersusScreen);
+  $arenaEl.classList.toggle("versus-background", !isVersusScreen);
 }

@@ -37,8 +37,8 @@
 
     <title>Rinha de Galo - Fatekinho</title>
   </head>
-  <body>
-    <div id="app" class="bg-background w-full min-h-screen">
+  <body class="bg-background">
+    <div id="app" class="x w-full min-h-screen">
       <!-- HEADER -->
       <header
         class="p-1 px-4 bg-slate-800 flex justify-between border border-b border-slate-700"
@@ -90,46 +90,16 @@
 
           <!-- arena -->
           <div
-            class="relative arena p-10 bg-cover bg-no-repeat w-[640px] h-[480px] rounded shadow-lg border border-slate-700"
+            class="relative versus-background p-10 bg-cover bg-no-repeat w-[640px] h-[480px] rounded shadow-lg border border-slate-700"
+            data-arena
           >
-            <div class="flex gap-1 items-center" data-rooster-choose-container>
+            <div
+              class="mt-20 flex gap-2 items-center"
+              data-rooster-choose-container
+            >
               <!-- rooster 1 -->
               <label
-                class="cursor-pointer w-80 h-60 bg-blue-800/30 rounded-l-2xl flex flex-col gap-2 p-2 items-center hover:bg-blue-800 hover:scale-105 transition-all ease-in-out hover:shadow-2xl shadow-none shadow-blue-600 has-[:checked]:bg-blue-800 has-[:checked]:scale-95"
-                data-rooster="blue"
-              >
-                <input
-                  type="checkbox"
-                  name="rooster"
-                  id=""
-                  class="hidden"
-                  value="blue"
-                />
-
-                <img
-                  src="./assets/rooster-img/blue.png"
-                  class="w-40 h-40 object-contain move-rooster"
-                  alt=""
-                />
-                <div
-                  class="rounded-full bg-slate-700 border border-slate-800 px-8 py-1"
-                >
-                  <span class="text-white">Frango da Sadia</span>
-                </div>
-              </label>
-
-              <!-- or -->
-              <div class="w-1 h-1 relative">
-                <span
-                  class="pointer-events-none top-0 -left-[18px] absolute text-white text-xl font-semibold italic bg-slate-900 flex items-center justify-center w-10 h-10 rounded-full"
-                >
-                  Ou
-                </span>
-              </div>
-
-              <!-- rooster 2 -->
-              <label
-                class="cursor-pointer w-80 h-60 bg-red-800/30 rounded-r-2xl flex flex-col gap-2 p-2 items-center hover:bg-red-800 hover:scale-105 transition-all ease-in-out hover:shadow-2xl shadow-none shadow-red-600 has-[:checked]:bg-red-800 has-[:checked]:scale-95"
+                class="group cursor-pointer w-80 h-60 rounded-l-2xl flex flex-col gap-2 p-2 items-center hover:scale-105 transition-all ease-in-out has-[:checked]:scale-95"
                 data-rooster="red"
               >
                 <input
@@ -139,15 +109,64 @@
                   class="hidden"
                   value="red"
                 />
-                <img
-                  src="./assets/rooster-img/red.png"
-                  class="w-40 h-40 object-contain flip-horizontally move-rooster"
-                  alt=""
-                />
+
+                <div class="relative size-40 min-w-40">
+                  <img
+                    src="./assets/rooster-img/red.png"
+                    alt="Galo vermelho"
+                    class="absolute top-0 right-0 size-40 blur-xl group-has-[:checked]:opacity-100 opacity-0 object-contain move-rooster"
+                  />
+                  <img
+                    src="./assets/rooster-img/red.png"
+                    alt="Galo vermelho"
+                    class="absolute top-0 right-0 size-40 inline-block object-contain move-rooster"
+                  />
+                </div>
                 <div
                   class="rounded-full bg-slate-700 border border-slate-800 px-8 py-1"
                 >
                   <span class="text-white">Ataliba</span>
+                </div>
+              </label>
+
+              <!-- or -->
+              <!-- <div class="w-1 h-1 relative">
+                <span
+                  class="pointer-events-none top-0 -left-[18px] absolute text-white text-xl font-semibold italic bg-slate-900 flex items-center justify-center w-10 h-10 rounded-full"
+                >
+                  Ou
+                </span>
+              </div> -->
+
+              <!-- rooster 2 -->
+              <label
+                class="group cursor-pointer w-80 h-60 rounded-r-2xl flex flex-col gap-2 p-2 items-center hover:scale-105 transition-all ease-in-out shadow-none has-[:checked]:scale-95"
+                data-rooster="blue"
+              >
+                <input
+                  type="checkbox"
+                  name="rooster"
+                  id=""
+                  class="hidden"
+                  value="blue"
+                />
+                <div class="relative size-40 min-w-40">
+                  <img
+                    src="./assets/rooster-img/blue.png"
+                    alt="Galo azul"
+                    class="absolute top-0 right-0 size-40 blur-xl group-has-[:checked]:opacity-100 opacity-0 flip-horizontally object-contain move-rooster"
+                  />
+                  <img
+                    src="./assets/rooster-img/blue.png"
+                    alt="Galo azul"
+                    class="absolute top-0 right-0 size-40 inline-block flip-horizontally object-contain move-rooster"
+                  />
+                </div>
+
+                <div
+                  class="rounded-full bg-slate-700 border border-slate-800 px-8 py-1"
+                >
+                  <span class="text-white">Frango da Sadia</span>
                 </div>
               </label>
             </div>
@@ -158,15 +177,15 @@
               data-rooster-fight-container
             >
               <img
-                src="./assets/rooster-img/blue.png"
-                data-rooster-fight-rooster="blue"
+                src="./assets/rooster-img/red.png"
+                data-rooster-fight-rooster="red"
                 class="absolute w-40 h-40 object-contain left-1 bottom-2 hidden"
                 alt=""
               />
               <!-- classe: rooster-red-fight -->
               <img
-                src="./assets/rooster-img/red.png"
-                data-rooster-fight-rooster="red"
+                src="./assets/rooster-img/blue.png"
+                data-rooster-fight-rooster="blue"
                 class="absolute w-40 h-40 object-contain flip-horizontally right-1 bottom-2 hidden"
                 alt=""
               />
@@ -178,14 +197,14 @@
                 class="absolute w-80 min-h-80 object-contain left-1/4 -bottom-16 hidden"
               />
               <img
-                src="./assets/rooster-img/red-win.png"
+                src="./assets/rooster-img/blue-win.png"
                 alt="O Galo Vermelho ganhou a luta"
-                data-rooster-winner="red"
-                class="absolute h-40 object-contain left-[20%] bottom-2 hidden"
+                data-rooster-winner="blue"
+                class="absolute h-40 object-contain left-[20%] bottom-2 hidden flip-horizontally"
               />
               <img
-                src="./assets/rooster-img/blue-win.png"
-                data-rooster-winner="blue"
+                src="./assets/rooster-img/red-win.png"
+                data-rooster-winner="red"
                 alt="O Galo Azul ganhou a luta"
                 class="absolute h-40 object-contain left-[20%] bottom-2 hidden"
               />
@@ -290,6 +309,11 @@
           </div>
         </div>
       </main>
+    </div>
+    <!-- cache de imagens -->
+    <div class="invisible opacity-0 hidden">
+      <img src="./assets/arenas/background_rinha_1.png" alt="" />
+      <img src="./assets/arenas/background_versus.png" alt="" />
     </div>
     <script type="module" src="./scripts/main-script.js"></script>
   </body>

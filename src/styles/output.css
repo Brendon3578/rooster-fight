@@ -604,6 +604,10 @@ video {
   pointer-events: none;
 }
 
+.invisible {
+  visibility: hidden;
+}
+
 .static {
   position: static;
 }
@@ -694,6 +698,10 @@ video {
   margin-top: 0.5rem;
 }
 
+.mt-20 {
+  margin-top: 5rem;
+}
+
 .block {
   display: block;
 }
@@ -731,6 +739,11 @@ video {
 .size-32 {
   width: 8rem;
   height: 8rem;
+}
+
+.size-40 {
+  width: 10rem;
+  height: 10rem;
 }
 
 .size-5 {
@@ -832,6 +845,10 @@ video {
   min-width: 8rem;
 }
 
+.min-w-40 {
+  min-width: 10rem;
+}
+
 .max-w-2xl {
   max-width: 42rem;
 }
@@ -926,6 +943,10 @@ video {
   white-space: nowrap;
 }
 
+.rounded {
+  border-radius: 0.25rem;
+}
+
 .rounded-full {
   border-radius: 9999px;
 }
@@ -942,18 +963,6 @@ video {
   border-radius: 0.75rem;
 }
 
-.rounded-sm {
-  border-radius: 0.125rem;
-}
-
-.rounded {
-  border-radius: 0.25rem;
-}
-
-.rounded-2xl {
-  border-radius: 1rem;
-}
-
 .rounded-l-2xl {
   border-top-left-radius: 1rem;
   border-bottom-left-radius: 1rem;
@@ -966,10 +975,6 @@ video {
 
 .border {
   border-width: 1px;
-}
-
-.border-2 {
-  border-width: 2px;
 }
 
 .border-b {
@@ -1009,11 +1014,6 @@ video {
   border-color: transparent;
 }
 
-.border-slate-600 {
-  --tw-border-opacity: 1;
-  border-color: rgb(71 85 105 / var(--tw-border-opacity));
-}
-
 .border-b-slate-700 {
   --tw-border-opacity: 1;
   border-bottom-color: rgb(51 65 85 / var(--tw-border-opacity));
@@ -1037,10 +1037,6 @@ video {
 .bg-background {
   --tw-bg-opacity: 1;
   background-color: rgb(15 25 35 / var(--tw-bg-opacity));
-}
-
-.bg-blue-800\/30 {
-  background-color: rgb(30 64 175 / 0.3);
 }
 
 .bg-cyan-500 {
@@ -1071,10 +1067,6 @@ video {
 .bg-red-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(239 68 68 / var(--tw-bg-opacity));
-}
-
-.bg-red-800\/30 {
-  background-color: rgb(153 27 27 / 0.3);
 }
 
 .bg-secondary {
@@ -1318,6 +1310,10 @@ video {
   text-decoration-line: underline;
 }
 
+.opacity-0 {
+  opacity: 0;
+}
+
 .shadow-lg {
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
@@ -1328,27 +1324,6 @@ video {
   --tw-shadow: 0 0 #0000;
   --tw-shadow-colored: 0 0 #0000;
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.shadow {
-  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.shadow-blue-600 {
-  --tw-shadow-color: #2563eb;
-  --tw-shadow: var(--tw-shadow-colored);
-}
-
-.shadow-red-600 {
-  --tw-shadow-color: #dc2626;
-  --tw-shadow: var(--tw-shadow-colored);
-}
-
-.shadow-white {
-  --tw-shadow-color: #fff;
-  --tw-shadow: var(--tw-shadow-colored);
 }
 
 .outline-none {
@@ -1372,6 +1347,11 @@ video {
 
 .blur-lg {
   --tw-blur: blur(16px);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.blur-xl {
+  --tw-blur: blur(24px);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
@@ -1403,7 +1383,11 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
-.arena {
+.versus-background {
+  background-image: url("../assets/arenas/background_versus.png");
+}
+
+.arena-background {
   background-image: url("../assets/arenas/background_rinha_1.png");
 }
 
@@ -1526,11 +1510,11 @@ input[type="number"] {
 }
 
 .rooster-red-fight {
-  animation: redRoosterFight 0.8s 5s ease-in forwards;
+  animation: blueRoosterFight 0.8s 5s ease-in forwards;
 }
 
 .rooster-blue-fight {
-  animation: blueRoosterFight 0.8s 5s ease-in forwards;
+  animation: redRoosterFight 0.8s 5s ease-in forwards;
 }
 
 @keyframes cloudFightAppear {
@@ -1572,22 +1556,6 @@ input[type="number"] {
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-.hover\:bg-blue-800:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(30 64 175 / var(--tw-bg-opacity));
-}
-
-.hover\:bg-red-800:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(153 27 27 / var(--tw-bg-opacity));
-}
-
-.hover\:shadow-2xl:hover {
-  --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-  --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
 .hover\:brightness-125:hover {
   --tw-brightness: brightness(1.25);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
@@ -1615,14 +1583,8 @@ input[type="number"] {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-.has-\[\:checked\]\:bg-blue-800:has(:checked) {
-  --tw-bg-opacity: 1;
-  background-color: rgb(30 64 175 / var(--tw-bg-opacity));
-}
-
-.has-\[\:checked\]\:bg-red-800:has(:checked) {
-  --tw-bg-opacity: 1;
-  background-color: rgb(153 27 27 / var(--tw-bg-opacity));
+.group:has(:checked) .group-has-\[\:checked\]\:opacity-100 {
+  opacity: 1;
 }
 
 @media (min-width: 640px) {
